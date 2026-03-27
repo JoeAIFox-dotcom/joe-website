@@ -68,11 +68,13 @@
   <input name="budget" placeholder="Budget"><br><br>
   <textarea name="struggle" placeholder="Your biggest struggle"></textarea><br><br>
 
-  <button type="submit">Start Now</button>
-</form>
+  <button type="submit" style="display:block;width:100%;background:#28a745;color:white;padding:15px;font-size:18px;border:none;border-radius:8px;margin-top:10px;">
+  🚀 Start Now
+  </button>
+  </form>
 
-<script>
-document.getElementById("starterForm").addEventListener("submit", async function(e){
+  <script>
+  document.getElementById("starterForm").addEventListener("submit", async function(e){
   e.preventDefault();
 
   const data = Object.fromEntries(new FormData(e.target).entries());
@@ -87,9 +89,9 @@ document.getElementById("starterForm").addEventListener("submit", async function
 
   const result = await response.json();
   alert(JSON.stringify(result));
-});
-</script>
-</body>
-</html>
+  });
+  </script>
+  </body>
+  </html>
 
 
