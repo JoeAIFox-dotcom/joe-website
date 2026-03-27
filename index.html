@@ -51,5 +51,45 @@
     document.querySelectorAll('.faq-item').forEach(function(i){i.addEventListener('click',function(){this.classList.toggle('open')})});
     document.querySelectorAll('#termsModal,#privacyModal,#disclaimerModal').forEach(function(m){m.addEventListener('click',function(e){if(e.target===this)this.classList.remove('active')})});
     </script>
+
+    <h2>Start with Joe the AI Fox 🦊</h2>
+
+  <form id="starterForm">
+  <input name="full_name" placeholder="Full Name" required><br><br>
+  <input name="whatsapp" placeholder="WhatsApp Number" required><br><br>
+  <input name="email" placeholder="Email" required><br><br>
+  <input name="city" placeholder="City" required><br><br>
+  <input name="income_goal" placeholder="Income Goal" required><br><br>
+  <input name="hours_per_day" placeholder="Hours per day" required><br><br>
+
+  <textarea name="skills" placeholder="Your skills"></textarea><br><br>
+  <textarea name="interests" placeholder="Your interests"></textarea><br><br>
+
+  <input name="budget" placeholder="Budget"><br><br>
+  <textarea name="struggle" placeholder="Your biggest struggle"></textarea><br><br>
+
+  <button type="submit">Start Now</button>
+</form>
+
+<script>
+document.getElementById("starterForm").addEventListener("submit", async function(e){
+  e.preventDefault();
+
+  const data = Object.fromEntries(new FormData(e.target).entries());
+
+  const response = await fetch("/.netlify/functions/make-webhook", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+  });
+
+  const result = await response.json();
+  alert(JSON.stringify(result));
+});
+</script>
 </body>
 </html>
+
+
