@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+  <title>Joe AI Starter Form</title>
+</head>
+<body>
+
+<h2>Start with Joe the AI Fox 🦊</h2>
+
+<form id="form">
+  <input name="full_name" placeholder="Full Name" required><br><br>
+  <input name="whatsapp" placeholder="WhatsApp Number" required><br><br>
+  <input name="email" placeholder="Email" required><br><br>
+  <input name="city" placeholder="City" required><br><br>
+  <input name="income_goal" placeholder="Income Goal" required><br><br>
+  <input name="hours_per_day" placeholder="Hours per day" required><br><br>
+
+  <textarea name="skills" placeholder="Your skills"></textarea><br><br>
+  <textarea name="interests" placeholder="Your interests"></textarea><br><br>
+
+  <input name="budget" placeholder="Budget"><br><br>
+  <textarea name="struggle" placeholder="Your biggest struggle"></textarea><br><br>
+
+  <button type="submit">Start Now</button>
+</form>
+
+<script>
+document.getElementById("form").addEventListener("submit", async function(e){
+  e.preventDefault();
+
+  const data = Object.fromEntries(new FormData(e.target).entries());
+
+  await fetch("/.netlify/functions/make-webhook", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+  });
+
+  alert("Submitted successfully!");
+});
+</script>
+
+</body>
+</html>
