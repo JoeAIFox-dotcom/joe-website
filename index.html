@@ -80,6 +80,21 @@
 
   const data = Object.fromEntries(new FormData(e.target).entries());
 
+let w = (data.whatsapp || "").replace(/\s+/g, "");
+
+// Convert 079... -> +2779...
+if (w.startsWith("0")) {
+  w = "+27" + w.slice(1);
+}
+
+// Convert 27... -> +27...
+if (w.startsWith("27")) {
+  w = "+" + w;
+}
+
+// Leave +27... as is
+data.whatsapp = w;
+
   const response = await fetch("/.netlify/functions/make-webhook", {
     method: "POST",
     headers: {
