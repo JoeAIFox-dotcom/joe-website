@@ -44,7 +44,18 @@
 
     <p>To unlock your personalised step-by-step plan, complete your payment below:</p>
 
-     <a href="https://payfast.io/7LAI4X7CRRMZHPIT" class="btn">💳 Activate My Plan</a>
+     <form action="https://payment.payfast.io/eng/process" method="post">
+  <input type="hidden" name="cmd" value="_paynow">
+  <input type="hidden" name="receiver" value="34359859">
+  <input type="hidden" name="return_url" value="https://joetheaifox.netlify.app/thank-you.html">
+  <input type="hidden" name="cancel_url" value="https://joetheaifox.netlify.app">
+  <input type="hidden" name="notify_url" value="https://joetheaifox.netlify.app">
+  <input type="hidden" name="amount" value="150.00">
+  <input type="hidden" name="item_name" value="Joe AI Fox Starter Plan">
+  <input type="hidden" name="item_description" value="Personalised AI-guided business starter plan with step-by-step support.">
+
+  <button type="submit" class="btn">💳 Activate My Plan</button>
+</form>
 
     <p style="margin-top:20px;font-size:14px;color:#666;">
       ⚡ Once payment is confirmed, your plan will be prepared and sent to you.
