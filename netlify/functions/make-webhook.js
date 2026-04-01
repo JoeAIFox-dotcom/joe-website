@@ -8,7 +8,7 @@ export default async (req) => {
 
     const payload = await req.json();
 
-    await fetch("https://hook.eu1.make.com/NEW-WEBHOOK-HERE", {
+    await fetch("https://hook.eu1.make.com/i6tn3sk2hepn8n9hnf95z0oxebehx1qt", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
